@@ -1,0 +1,14 @@
+{
+  "looting.stealing": {
+    "category": "master",
+    "sounds": [
+      "rpgloot:looting/stealing"
+    ]
+  },
+  "looting.inventoryfull": {
+    "category": "master",
+    "sounds": [
+      "rpgloot:looting/inventoryfull"
+    ]
+  }
+}
