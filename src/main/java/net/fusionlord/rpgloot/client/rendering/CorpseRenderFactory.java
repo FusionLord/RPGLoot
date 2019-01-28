@@ -18,17 +18,17 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 import javax.annotation.Nonnull;
 import java.util.UUID;
 
-public class CorpseRenderFactory implements IRenderFactory<EntityCorpse>
-{
+public class CorpseRenderFactory implements IRenderFactory<EntityCorpse> {
 
-	public CorpseRenderFactory() {}
+    public CorpseRenderFactory() {
+    }
 
-	@Override
-	public Render<? super EntityCorpse> createRenderFor(RenderManager manager) {
-		return new RenderCorpse(manager);
-	}
+    @Override
+    public Render<? super EntityCorpse> createRenderFor(RenderManager manager) {
+        return new RenderCorpse(manager);
+    }
 
-	private static class RenderCorpse extends Render<EntityCorpse> {
+    private static class RenderCorpse extends Render<EntityCorpse> {
 
         RenderCorpse(RenderManager renderManager) {
             super(renderManager);
@@ -40,14 +40,12 @@ public class CorpseRenderFactory implements IRenderFactory<EntityCorpse>
         }
 
         @Override
-        protected ResourceLocation getEntityTexture(@Nonnull EntityCorpse corpse)
-        {
+        protected ResourceLocation getEntityTexture(@Nonnull EntityCorpse corpse) {
             return null;
         }
 
         @Override
-        public void doRender(@Nonnull EntityCorpse corpse, double x, double y, double z, float whoknows, float partialTicks)
-        {
+        public void doRender(@Nonnull EntityCorpse corpse, double x, double y, double z, float whoknows, float partialTicks) {
             try {
                 String entClass = corpse.getEntityClass();
                 Entity entInstance;
@@ -90,10 +88,9 @@ public class CorpseRenderFactory implements IRenderFactory<EntityCorpse>
 
                 GlStateManager.translate(0, (float) -(entInstance.getEntityBoundingBox().maxY - entInstance.getEntityBoundingBox().minY) / 2F, 0);
                 renderManager.setRenderShadow(false);
-                renderManager.doRenderEntity(entInstance, 0, 0, 0, 0, 0, false);
+                renderManager.renderEntity(entInstance, 0, 0, 0, 0, 0, false);
                 GlStateManager.popMatrix();
-            }
-            catch (Exception exception) {
+            } catch (Exception exception) {
                 RPGLoot.logger.error(exception);
                 GlStateManager.popMatrix();
             }

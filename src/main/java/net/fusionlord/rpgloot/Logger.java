@@ -3,35 +3,33 @@ package net.fusionlord.rpgloot;
 import net.minecraftforge.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 
-public class Logger
-{
-	public static Logger INSTANCE;
-	public Logger() {
-		super();
-		INSTANCE = this;
-	}
+public class Logger {
+    public static Logger INSTANCE;
 
-	public void log(Level logLevel, Object msg)
-	{
-		FMLLog.log.log(logLevel, String.valueOf(msg));
-	}
+    public Logger() {
+        super();
+        INSTANCE = this;
+    }
 
-	public void warn(Object msg)
-	{
-		log(Level.WARN, msg);
-	}
+    public static final String HEADER = "[RPGLoot] - ";
 
-	public void info(Object msg)
-	{
-		log(Level.INFO, msg);
-	}
+    public static void slog(Level level, String s) {
+        INSTANCE.log(level, s);
+    }
 
-	public void error(Object msg)
-	{
-		log(Level.ERROR, msg);
-	}
+    public void log(Level logLevel, Object msg) {
+        FMLLog.log.log(logLevel, HEADER + String.valueOf(msg));
+    }
 
-	public static void slog(Level level, String s) {
-		INSTANCE.log(level, s);
-	}
+    public void warn(Object msg) {
+        log(Level.WARN, msg);
+    }
+
+    public void info(Object msg) {
+        log(Level.INFO, msg);
+    }
+
+    public void error(Object msg) {
+        log(Level.ERROR, msg);
+    }
 }

@@ -9,22 +9,20 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class ClientProxy extends CommonProxy
-{
+public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(EntityCorpse.class, new CorpseRenderFactory());
     }
 
-	@Override
-	public void postInit(FMLPostInitializationEvent event) {
-		super.postInit(event);
-	}
+    @Override
+    public void postInit(FMLPostInitializationEvent event) {
+        super.postInit(event);
+    }
 
-	public void playSound(String sound)
-	{
+    public void playSound(String sound) {
 //		FMLClientHandler.instance().getClientPlayerEntity().playSound(RPGLoot.MODID + ":" + sound, Minecraft.getMinecraft().gameSettings.getSoundLevel(SoundCategory.AMBIENT), 1f);
-	}
+    }
 
     @Override
     public World getWorld() {

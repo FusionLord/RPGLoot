@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class CommonProxy {
-	public void preInit(FMLPreInitializationEvent event) {
+    public void preInit(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new CommonEvents());
     }
 
@@ -22,11 +22,11 @@ public class CommonProxy {
         EntityRegistry.registerModEntity(new ResourceLocation(RPGLoot.MODID, "corpse"), EntityCorpse.class, "rpgloot_corpse", 0, RPGLoot.INSTANCE, 64, 20, false);
     }
 
-	public void postInit(FMLPostInitializationEvent event) {
+    public void postInit(FMLPostInitializationEvent event) {
 
-	}
+    }
 
-	public World getWorld() {
-	    return null;
+    public World getWorld() {
+        return null;
     }
 }
